@@ -17,7 +17,7 @@ let character = {
     vidaMaxima: 100,
     nivel: 1,
     experiencia: 0,
-    emoji: "🥷"
+    emoji: "🧙"
 };
 
 // ===================================
@@ -44,30 +44,21 @@ const levels = {
     1: {
         nome: "Floresta dos Iniciantes",
         objetivo: "Colete 3 itens",
-        backgroundColor: "#preto",
+        backgroundColor: "#2d4a2e",
         itemsNeeded: 3
     },
     2: {
         nome: "Caverna Sombria",
         objetivo: "Sobreviva por 30 segundos",
-        backgroundColor: "#vermelho",
+        backgroundColor: "#1a1a2e",
         timeLimit: 30
     },
     3: {
         nome: "Castelo Final",
         objetivo: "Encontre a saída!",
-        backgroundColor: "#azul ",
+        backgroundColor: "#4a2d2d",
         hasExit: true
-    
     }
-    
-    4: {
-        nome: "Missão impossível",
-        objetivo: "acabar com todos os inimigos!",
-        backgroundColor: "#5a2d2d",
-        bossLevel: true
-    }, 
-    
 };
 
 // ===================================
@@ -95,14 +86,14 @@ let abilities = {
         lastUsed: 0,
         dano: 30,
         alcance: 80,
-        tecla: "x"
+        tecla: "Space"
     },
     dash: {
         nome: "Corrida Rápida",
         cooldown: 5000,
         lastUsed: 0,
         distancia: 60,
-        tecla: "ctrl"
+        tecla: "Shift"
     }
 };
 
@@ -375,7 +366,7 @@ function updateInventoryDisplay() {
         document.getElementById('info-panel').appendChild(inventoryPanel);
     }
     
-    let inventoryHTML = '<strong>👜 Inventário (' + inventory.length + '/' + maxInventorySize + '):</strong> ';
+    let inventoryHTML = '<strong>🎒 Inventário (' + inventory.length + '/' + maxInventorySize + '):</strong> ';
     
     if (inventory.length === 0) {
         inventoryHTML += '<em>Vazio</em>';
@@ -443,7 +434,7 @@ function checkEnemyCollision() {
                 player.style.background = '#ff6b6b';
             }, 200);
             
-            console.log("💣 Recebeu " + enemy.dano + " de dano!");
+            console.log("💥 Recebeu " + enemy.dano + " de dano!");
             
             if (character.vida <= 0) {
                 gameOver();
@@ -592,16 +583,16 @@ function startLevel(levelNumber) {
 
 function setupLevel1() {
     items = [
-        { x: 200, y: 100, tipo: "moeda", emoji: "🪙", valor: 10 },
-        { x: 400, y: 200, tipo: "poção", emoji: "💸", valor: 20 },
-        { x: 600, y: 150, tipo: "estrela", emoji: "💴", valor: 50 },
-        { x: 300, y: 300, tipo: "diamante", emoji: "💷", valor: 30 }
+        { x: 200, y: 100, tipo: "moeda", emoji: "💰", valor: 10 },
+        { x: 400, y: 200, tipo: "poção", emoji: "🧪", valor: 20 },
+        { x: 600, y: 150, tipo: "estrela", emoji: "⭐", valor: 50 },
+        { x: 300, y: 300, tipo: "diamante", emoji: "💎", valor: 30 }
     ];
     
     enemies = [
-        { x: 350, y: 100, direcao: 2, velocidade: 4, emoji: "🦖", dano: 5 }
-  
+        { x: 350, y: 100, direcao: 1, velocidade: 2, emoji: "🐛", dano: 5 }
     ];
+    
     createItems();
     createEnemies();
 }
@@ -610,20 +601,19 @@ function setupLevel2() {
     levelStartTime = Date.now();
     
     items = [
-        { x: 150, y: 150, tipo: "cura", emoji: "🫀", valor: 5 },
-        { x: 650, y: 250, tipo: "cura", emoji: "🫀", valor: 5 }
+        { x: 150, y: 150, tipo: "cura", emoji: "❤️", valor: 0 },
+        { x: 650, y: 250, tipo: "cura", emoji: "❤️", valor: 0 }
     ];
     
     enemies = [
-        { x: 300, y: 100, direcao: 1, velocidade: 3, emoji: "🥷", dano: 10 },
-        { x: 500, y: 250, direcao: -1, velocidade: 4, emoji: "👹", dano: 15 },
-        { x: 200, y: 300, direcao: 1, velocidade: 2, emoji: "🐯", dano: 8 }
+        { x: 300, y: 100, direcao: 1, velocidade: 3, emoji: "🦇", dano: 10 },
+        { x: 500, y: 250, direcao: -1, velocidade: 4, emoji: "👻", dano: 15 },
+        { x: 200, y: 300, direcao: 1, velocidade: 2, emoji: "🕷️", dano: 8 }
     ];
     
     createItems();
     createEnemies();
 }
-
 
 function setupLevel3() {
     items = [
@@ -631,15 +621,14 @@ function setupLevel3() {
     ];
     
     enemies = [
-        { x: 200, y: 150, direcao: 1, velocidade: 2, emoji: "🧛🏿", dano: 20 },
-        { x: 600, y: 200, direcao: -1, velocidade: 3, emoji: "🧟", dano: 18 }
+        { x: 200, y: 150, direcao: 1, velocidade: 2, emoji: "🐉", dano: 20 },
+        { x: 600, y: 200, direcao: -1, velocidade: 3, emoji: "⚔️", dano: 18 }
     ];
     
     createItems();
     createEnemies();
-    createExitDoor();function setupLevel3() {
-
-
+    createExitDoor();
+}
 
 function createExitDoor() {
     exitDoor = { x: 700, y: 300 };
