@@ -59,7 +59,7 @@ const levels = {
         backgroundColor: "#azul ",
         hasExit: true
     
-    },
+    }
     
     4: {
         nome: "Missão impossível",
@@ -67,7 +67,6 @@ const levels = {
         backgroundColor: "#5a2d2d",
         bossLevel: true
     }, 
-   
     
 };
 
@@ -640,18 +639,7 @@ function setupLevel3() {
     createEnemies();
     createExitDoor();function setupLevel3() {
 
-        function setupLevel4() {
-            items = [
-                { x: 400, y: 200, tipo: "cura", emoji: "❤️", valor: 0 }
-            ];
-            
-            enemies = [
-                { x: 200, y: 100, direcao: 1, velocidade: 4, emoji: "🧌", dano: 25 },
-                { x: 600, y: 300, direcao: -1, velocidade: 5, emoji: "🩻", dano: 30 }
-            ];
-            
-            createItems();
-            createEnemies();
+
 
 function createExitDoor() {
     exitDoor = { x: 700, y: 300 };
@@ -804,5 +792,4 @@ console.log("   ⬆️⬇️⬅️➡️ = Mover");
 console.log("   ESPAÇO = Atacar");
 console.log("   SHIFT = Dash");
 console.log("===================================");
-console.log("Boa sorte, aventureiro!");        
-
+console.log("Boa sorte, aventureiro! 🗡️");
